@@ -1,2 +1,2 @@
 # Image-Steganography
-Image steganography in python using PIL 
+Image steganography in python using PIL .
