@@ -10,6 +10,9 @@ def encode(msg, image):
         b=format(ord(x),'08b')
         binary.append(b)
     img = Image.open(image)
+    name,extension = image.name.rsplit('.', 1)
+    img.save(name+'.gif')
+    img = Image.open(name+'.gif')
     w,h=img.size
     pixel=img.load()
     x,y=0,1
@@ -37,8 +40,7 @@ def encode(msg, image):
         elif n==num-1:
             pixel[x,y]=101
             y=y+1
-    extension = image.name.split('.')[-1]
-    img.save(buf, format=extension)
+    img.save(buf, format='gif')
     byte_im = buf.getvalue()
     return byte_im
     
